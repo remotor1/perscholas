@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --clr: #e10096;
+    --bgfrclr: #252839;
+    --label-color: #00ade1;
+    --input-bg-color: black;
+}
+
+.page {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    background: #10121a;
+}
+
+.title {
+    font-size: 48px;
+    color: var(--label-color);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    border: 1px solid #000;
+    font-family: 'Alegreya Sans', sans-serif;
+    padding: 40px 60px;
+    border-radius: 20px;
+    background-color: var(--bgfrclr);
+    filter: drop-shadow(0 0 45px rgba(0, 0, 0, 0.781));
+}
+
+label {
+    color: var(--label-color);
+    font-size: 22px;
+    padding: 0 10px 5px;
+}
+
+input {
+    background-color: var(--input-bg-color);
+    margin: 5px 0 30px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 18px;
+    transition: filter 1s;
+    color: gray;
+}
+
+input:focus {
+    border-color: var(--clr);
+    outline: 2px solid var(--clr);
+    filter: drop-shadow(0 0 15px var(--clr));
+}
+
+.button-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 2px solid var(--clr);
+    padding: 20px;
+    margin: 45px 0 0;
+    border-radius: 5px;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bgfrclr);
+    border: 0;
+    position: relative;
+    font-size: 3em;
+    text-decoration: none;
+    line-height: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+}
+
+button::before {
+    content: "\00a0Submit\00a0";
+    position: absolute;
+    color: var(--clr);
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-right: 8px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+}
+
+button:hover::before {
+    width: 100%;
+    filter: drop-shadow(0 0 25px var(--clr));
+}
