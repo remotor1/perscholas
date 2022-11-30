@@ -1,4 +1,4 @@
-//Challenge: For Loops - Fundamentals
+// Challenge: For Loops - Fundamentals
 
 // Challenge
 // Using a for loop, decrement countDown by one each time the loop
@@ -20,7 +20,7 @@ console.log(countDown);
 // 2. Use a second for loop to iterate through the greetings
 // and console.log() each greetings.
 
-const synonyms = ["fantastic", "wonderful", "great"];
+const synonyms = ['fantastic', 'wonderful', 'great'];
 const greetings = [];
 
 // 1.
@@ -50,9 +50,9 @@ for (const item of greetings) {
 // with the format "My name is [firstName] [lastName]
 // and I am from [place]" into the array holding the respective bios.
 
-const firstNames = ["Jon", "Arya", "Jamie"];
-const lastNames = ["Snow", "Stark", "Lannister"];
-const places = ["The Wall", "Winterfell", "Kings Landing"];
+const firstNames = ['Jon', 'Arya', 'Jamie'];
+const lastNames = ['Snow', 'Stark', 'Lannister'];
+const places = ['The Wall', 'Winterfell', 'Kings Landing'];
 const bios = [];
 
 // Loop through your arrays and store the following strings in the bios array:
@@ -64,12 +64,13 @@ const bios = [];
 
 for (let i = 0; i < firstNames.length; i++) {
   bios.push(
-    `My name is ${firstNames[i]} ${lastNames[i]} and I am from ${places[i]}`
+    `My name is ${firstNames[i]} ${lastNames[i]} and I am from ${places[i]}`,
   );
 }
 console.log(bios);
 
 // Challenge: For Loops - Calculating Array Elements
+// eslint-disable-next-line max-len
 // You are given an array of five numbers called increaseByTwo. Use a for loop to iterate through the array and increase each number by two.
 
 const increaseByTwo = [1, 2, 3, 4, 5];
