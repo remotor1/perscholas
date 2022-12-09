@@ -162,7 +162,11 @@ console.log("bank_account = ", bank_account);
 // B. Easy Does It
 // Create an array that contains three quotes and store it in a variable called quotes
 
-const quotes = ["fdg dfg f h", " ghdfgh  hfgh gfh", " fghgfhj h h jhg jgh"];
+const quotes = [
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
+];
 
 // C. Accessing elements
 // Given the following array const randomThings = [1, 10, "Hello", true]
