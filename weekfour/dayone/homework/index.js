@@ -104,6 +104,10 @@ class Person {
     this.bankAccount += 10 * years;
   }
   // buyHamster(hamster) - push the hamster object onto the hamster array, increment mood by 10, decrement bankAccount by the value of the hamster (hint: use getPrice())
+  buyHamster(hamster) {
+    this.hamsters.push(hamster);
+    this.mood += 10;
+  }
 }
 
 const person1 = new Person("Timmy");
