@@ -347,4 +347,20 @@ console.log(
   `Thom's outfit: ${thomsCloset[0][1]} ${thomsCloset[1][2]} ${thomsCloset[2][1]}`
 );
 
-// console.log(thomsCloset);
+// Dirty Laundry
+// Continue looking at the closet arrays:
+
+// Time to do laundry - loop through Kristyn's closet and log the sentence "WHIRR: Now washing (item)" for each item in the array.
+
+kristynsCloset.forEach((item) => {
+  console.log(`WHIRR: Now washing ${item}`);
+});
+
+// Inventory
+// Thom wants to do inventory on his closet. Using bracket notation, log the arrays containing all of Thom's shirts, pants, and accessories.
+
+thomsCloset.forEach((item) => {
+  item.forEach((element) => {
+    console.log(`thomsCloset ${element}`);
+  });
+});
