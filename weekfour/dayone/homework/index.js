@@ -87,6 +87,10 @@ class Person {
   greet() {
     console.log(this.name);
   }
+
+  mamasPresent(money) {
+    this.bankAccount += money;
+  }
   // eat() - increment weight, increment mood
   eat(foodWeight) {
     this.weight += foodWeight;
@@ -103,10 +107,17 @@ class Person {
     this.mood -= 1 * years;
     this.bankAccount += 10 * years;
   }
+
   // buyHamster(hamster) - push the hamster object onto the hamster array, increment mood by 10, decrement bankAccount by the value of the hamster (hint: use getPrice())
   buyHamster(hamster) {
-    this.hamsters.push(hamster);
-    this.mood += 10;
+    if (this.bankAccount >= hamster.getPrice()) {
+      this.hamsters.push(hamster);
+      this.mood += 10;
+      this.bankAccount -= hamster.getPrice();
+      hamster.setOwner(this.name);
+    } else {
+      console.log("you are not affordable!");
+    }
   }
 }
 
@@ -119,6 +130,11 @@ const person2 = new Person("Gus");
 
 humpster1.setOwner(person1.getName());
 humpster1.setOwner(person2.getName());
+
+//!!!!
+person2.mamasPresent(45);
+person2.buyHamster(humpster1);
+console.log("!!!!!!!!!!", person2);
 
 person1.ageUp(15, 12, 12);
 person1.eat(23);

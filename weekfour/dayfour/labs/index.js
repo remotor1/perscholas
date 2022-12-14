@@ -1,299 +1,421 @@
 /* eslint-disable */
 
-// --------------- Easy Going --------------- //
+//--------------- Section 1
+
+//--------------- Creating Classes & Factories
 
 /*
-Write a for loop that will log the numbers 1 through 20.
-*/
+ Hamster
+attributes:
 
-let increment = 1;
-while (increment <= 20) {
-  console.log(increment);
-  increment += 1;
+owner - string, initially set as an empty string
+name - string, set the name from parameter in constructor method
+price - integer, set as 15
+methods:
+
+wheelRun() - log "squeak squeak"
+eatFood() - log "nibble nibble"
+getPrice() - return the price
+ */
+
+class Hamster {
+  constructor(name) {
+    this.owner = "";
+    this.name = name;
+    this.price = 15;
+  }
+  wheelRun() {
+    console.log("squeak squeak");
+  }
+  eatFood() {
+    console.log("nibble nibble");
+  }
+  getPrice() {
+    return this.price;
+  }
 }
 
-// --------------- Get Even --------------- //
-
 /*
-Write a for loop that will log only the even numbers in 0 through 200.
-Hint: Think about the increment expression.
+Person
+attributes:
+
+name - set name from parameter in constructor method
+age - initially 0
+height - initially 0
+weight - initially 0
+mood - integer starting at 0 initially
+hamsters - empty array initially
+bankAccount - initially set to 0
+methods:
+
+getName() - returns name
+getAge() - returns age
+getWeight() - returns weight
+greet() - logs a message with person's name
+eat() - increment weight, increment mood
+exercise() - decrement weight
+ageUp() - increment age, increment height, increment weight, decrement mood, 
+increment bank account by 10 (birthday money)
+buyHamster(hamster) - push the hamster object onto the hamster array, increment mood by 10, 
+decrement bankAccount by the value of the hamster (hint: use getPrice())
 */
 
-for (let i = 0; i <= 200; i += 2) {
+class Person {
+  constructor(name) {
+    this.name = name;
+    this.age = 0;
+    this.height = 0;
+    this.weight = 0;
+    this.mood = 0;
+    this.hamsters = [];
+    this.bankAccount = 0;
+  }
+  getName() {
+    return this.name;
+  }
+  getAge() {
+    return this.age;
+  }
+  getWeight() {
+    return this.weight;
+  }
+  greet() {
+    console.log(`I am ${this.name} hello`);
+  }
+  eat() {
+    this.weight++;
+    this.mood++;
+  }
+  exercise() {
+    this.weight--;
+  }
+  ageUp() {
+    this.age++;
+    this.height++;
+    this.weight++;
+    this.mood--;
+    this.bankAccount += 10;
+  }
+  buyHamster(hamster) {
+    this.hamsters.push(hamster);
+    this.mood += 10;
+    this.bankAccount -= hamster.getPrice();
+  }
+}
+
+/*
+Create a Story with your Person class
+Feel free to update or add methods to automate some of these tasks.
+
+Instantiate a new Person named Timmy
+Age Timmy five years
+At this point Timmy's a little bummed. As a precocious child, he feels he's "seen it all" already. Have him eat five times.
+Now Timmy's a little heavier than he wants to be. Kindergarten's coming up and he wants to look good. Have him exercise five times
+Age Timmy 9 years
+Create a hamster named "Gus"
+Set Gus's owner to the string "Timmy"
+Have Timmy "buy" Gus
+Age Timmy 15 years
+Have Timmy eat twice
+Have Timmy exercise twice
+*/
+
+const timmy = new Person("Timmy");
+for (let i = 0; i < 5; i++) {
+  timmy.ageUp();
+}
+for (let i = 0; i < 5; i++) {
+  timmy.eat();
+}
+for (let i = 0; i < 5; i++) {
+  timmy.exercise();
+}
+for (let i = 0; i < 9; i++) {
+  timmy.ageUp();
+}
+const gus = new Hamster("Gus");
+gus.owner = "Timmy";
+timmy.buyHamster(gus);
+
+for (let i = 0; i < 15; i++) {
+  timmy.ageUp();
+}
+timmy.eat();
+timmy.eat();
+timmy.exercise();
+timmy.exercise();
+
+//------------------- Chef Make Dinners
+
+/*
+Chef should be a factory of Dinner
+Add a constructor to dinner that sets the string properties, appetizer, entree and dessert.
+Add a method on chef that takes three arguments and returns a new Dinner based on those arguments.
+Have the Chef create 3 dinners, log the dinners
+*/
+
+class Dinner {
+  constructor(appetizer, entree, dessert) {
+    this.appetizer = appetizer;
+    this.entree = entree;
+    this.dessert = dessert;
+  }
+}
+const firstDinner = new Dinner("carrot", "mango", "apple");
+console.log(firstDinner);
+//factory
+class Chef {
+  constructor(arg1, arg2, arg3) {
+    this.arg1 = arg1;
+    this.arg2 = arg2;
+    this.arg3 = arg3;
+    this.dinner = [];
+  }
+
+  createDinner() {
+    const newDinner = new Dinner(this.arg1, this.arg2, this.arg3);
+    this.dinner.push(newDinner);
+  }
+  dinnerNumber(index) {
+    return this.dinner[index];
+  }
+}
+
+const birthdayDinner = new Chef("carrot", "mango", "apple");
+birthdayDinner.createDinner();
+birthdayDinner.createDinner();
+birthdayDinner.createDinner();
+console.log("!birthdayDinner!", birthdayDinner);
+console.log("!dinnerNumber!", 2, birthdayDinner.dinnerNumber(2));
+
+/*
+student should be able to describe these answers in their own words
+How do we assign a value to a variable? let somevar = 10
+How do we change the value of a variable? somevar = 12
+How do we assign an existing variable to a new variable? let newvar = somevar
+Remind me, what are declare, assign, and define? no wrong answers, they should show an understanding of how to use these words
+What is pseudocoding and why should you do it? no wrong answers but they should understand that psuedo code is not code its plain english description of what they want to accomplish
+What percentage of time should be spent thinking about how you're going to solve a problem vs actually typing in code to solve it? no wrong answers but they should defend what they say
+*/
+
+// C. Booleans
+// Using the provided variable definitions, replace the blanks so that all log statements print truein the console. Answers should be all be valid JS syntax and not weird things that don't make sense but happen to print trueto the console answer below
+const a = 4;
+const b = 53;
+const c = 57;
+const d = 16;
+const e = "Kevin";
+
+console.log(a < b);
+console.log(c > d);
+console.log("Name" === "Name");
+// FOR THE NEXT TWO, USE ONLY && OR ||
+console.log(true || false);
+console.log(false || false || false || false || false || true);
+console.log(false === false);
+console.log(e === "Kevin");
+console.log(a + b === c); // note: a < b < c is NOT CORRECT (and is not a valid JS expression, think about using other math operations)
+console.log(a * a === d); // note: the answer is a simple arithmetic equation, not something "weird"
+console.log(48 == "48");
+
+/*
+D. The farm follow below instructions
+Declare a variable animal. Set it to be either "cow" or something else
+Write code that will print out "mooooo" if the it is equal to cow
+Change your code so that if the variable animalis anything other than a cow, it will print "Hey! You're not a cow."
+Commit
+*/
+
+let animal = "cow";
+console.log(animal === "cow" ? "mooooo" : "Hey! You're not a cow.");
+animal = "humster";
+console.log(animal === "cow" ? "mooooo" : "Hey! You're not a cow.");
+
+/*
+E. Driver's Ed
+Make a variable that holds a person's age; be semantic let personAge
+Write code that will print out "Here are the keys!", if the age is 16 years or older, or, if the age is younger than 16, a message should print "Sorry, you're too young."
+*/
+
+let personAge = 15;
+console.log(
+  personAge >= 16 ? "Here are the keys!" : "Sorry, you're too young."
+);
+
+/*
+II. Loops simple loops students should follow instructions
+Remember: USE let when you initialize your for loops!
+This is GOOD: for(let i = 0; i < 100; i++)
+This is NO GOOD: for(i = 0; i < 100; i++)
+*/
+
+/*
+A. The basics
+Write a loop that will print out all the numbers from 0 to 10, inclusive
+Write a loop that will print out all the numbers from 10 up to and including 400
+Write a loop that will print out every third number starting with 12 and going no higher than 4000
+*/
+
+for (let i = 0; i <= 10; i += 1) {
+  console.log(i);
+}
+for (let i = 10; i <= 400; i += 1) {
+  console.log(i);
+}
+for (let i = 12; i <= 400; i += 3) {
   console.log(i);
 }
 
-for (let i = 0; i <= 200; i += 2) {
-  if (i % 2 === 0) console.log(i);
-}
-
-// --------------- Fizz Buzz --------------- //
-
 /*
-This is a classic problem that you should get really comfortable solving.
-If you've solved it before, try to make it more elegant and short.
+B. Get even students should use modulus
+Print out the numbers that are within the range of 1 - 100
+Adjust your code to add a message next to even numbers only that says: "<-- is an even number"
+*/
+//????????????????????????????????????????????
+// import { printOutNums } from "./script.js";
+// printOutNums();
 
-Write a javascript application that logs all numbers from 1 - 100.
-If a number is divisible by 3 log "Fizz" instead of the number.
-If a number is divisible by 5 log "Buzz" instead of the number.
-If a number is divisible by 3 and 5 log "FizzBuzz" instead of the number.
+// C. Give me Five students should use modulus
+// For the numbers 0 - 100, print out "I found a number. High five!" if the number is a multiple of five
+// Example Output:
+
+// I found a 5. High five!
+// I found a 10. High five!
+
+for (let i = 0; i <= 100; i += 1) {
+  if (i % 5 === 0) {
+    console.log(`"I found a ${i}. High five!"`);
+  }
+  if (i % 3 === 0) {
+    console.log(`"I found a ${i}. Three is a crowd"`);
+  }
+}
+/*
+D. Savings account simple students should follow instructions and either make an array of numbers or just make a loop
+Write code that will save the sum of all the numbers between 1 - 10 to a variable called bank_account.
+Check your work! Your bank_account should have $55 in it.
+
+You got a bonus! Your pay is now doubled each week. Write code that will save the sum of all the numbers between 1 - 100 multiplied by 2.
+Check your work! Your bank_account should have $10,100 in it.
 */
 
+let bank_account = 0;
+for (let i = 1; i <= 10; i += 1) {
+  bank_account += i;
+}
+console.log("bank_account = ", bank_account);
+
+bank_account = 0;
 for (let i = 1; i <= 100; i += 1) {
-  i % 3 === 0 && i % 5 === 0
-    ? console.log("FizzBuzz")
-    : i % 3 === 0
-    ? console.log("Fizz")
-    : i % 3 === 0
-    ? console.log("Buzz")
-    : console.log(i);
+  bank_account += i * 2;
 }
+console.log("bank_account = ", bank_account);
 
-// --------------- Wild Wild Life --------------- //
+//---------------------------- III. Arrays & Control flow answer questions
 
-/*
-Use the following arrays to answer the questions below (name,species ,age, hometown): 
-You should be modifying the elements by accessing them. It is up to you which methods to use.
+// III. Arrays & Control flow
 
-const wolfy = ["Wolfy", "wolf", 16, "Yukon Territory"]
-const sharky = ["Sharky", "shark", 20, "Left Coast"]
-const plantee = ["Plantee", "plant",  5000 , "Mordor"]
-const porgee = ["Porgee", "Porg", 186, "Ahch-To"]
-const dart = ["D'Art" , "Demogorgan Dog", 2, "Upside Down"]
-Plantee just had her birthday; change Plantee's array to reflect her being a year older.
-Change Wolfy's hometown from "Yukon Territory" to "Gotham City".
-Give D'Art a second hometown by adding "Hawkins"
-Porgee decides that Wolfy can't be named "Wolfy" anymore. Remove "Wolfy" from the wolfyarray and replace it with "Gameboy".
-*/
+// A. Talk about it:
+// What are the things in an array called?          Each item stored in an array is called an array element, and each has a unique number (index) by which we can refer to it.
+// Do Arrays guarantee those things will be in order?        index - yes and value not
+// What real-life thing could you model with an array?          mailbox
 
-const wolfy = ["Wolfy", "wolf", 16, "Yukon Territory"];
-const sharky = ["Sharky", "shark", 20, "Left Coast"];
-const plantee = ["Plantee", "plant", 5000, "Mordor"];
-const porgee = ["Porgee", "Porg", 186, "Ahch-To"];
-const dart = ["D'Art", "Demogorgan Dog", 2, "Upside Down"];
+// B. Easy Does It
+// Create an array that contains three quotes and store it in a variable called quotes
 
-plantee[2] = plantee[2] + 1;
-wolfy[wolfy.length - 1] = "Gotham City";
-dart.push("Hawkins");
-wolfy.shift();
-wolfy.unshift("Gameboy");
-
-// --------------- Yell at the Ninja Turtles --------------- //
-/*
-Create an array with the members of the ninja turtles (Donatello, Leonardo, Raphael, Michaelangelo)
-Use a for of loop(not a typo - try it out! Try a for of loop) to call toUpperCase()on each of them and print out the result.
-As a developer, you'll be a life long learner and constantly encountering new things.
-We'll give you little stretches like this to get you used to looking at documentation
-and figuring some things out on your own. You've got this!
-*/
-
-const ninjaTurtles = ["Donatello", "Leonardo", "Raphael", "Michaelangelo"];
-// .1
-for (const name of ninjaTurtles) {
-  console.log(name.toUpperCase());
-}
-// .2
-ninjaTurtles.forEach((name) => {
-  console.log(name.toUpperCase());
-});
-// .3
-console.log(...ninjaTurtles.map((name) => name.toUpperCase()));
-
-// ---------------  Methods, Revisited --------------- //
-/* 
-Here is a list of favMovies:
-
-const favMovies = ['Jaws', 'The Fellowship of the Ring', 'Howl\'s Moving Castle', 
-'Django Unchained', 'Cloud Atlas', 'The Usual Suspects', 'Toy Story', 'Conan the Barbarian', 
-'Titanic', 'Harry Potter', 'Fried Green Tomatoes', 'Volver', 'Oculus', 'Seven', 'Black Panther', 
-'Harry Potter', 'Imitation of Life', 'Snatch', 'Fast and Furious'];
-Console log: the index of Titanic
-Do the following and console.log the final results (I have included some thought questions, 
-  you don't have to write out an answer for those marked as such):
-Note: if you have to add to the array, feel free to add any movie you'd like
-
-use the .sortmethod Thought question: what did this do to the array? Did it permanently alter it?
-Use the method pop
-push"Guardians of the Galaxy"
-Reverse the array
-Use the shiftmethod
-unshift- what does it return?
-splice"Django Unchained" and add "Avatar" (try finding the index of "Django Unchained", 
-instead of counting it yourself) Thought question: did this permanently alter our array?
-slicethe last half of the array (challenge yourself and try to programatically determine 
-  the middle of the array rather than counting it and hard coding it) - Thought question: 
-  did this permanently alter our array?
-store the value of your slicein a variable, console.log it - Thought question: what is going on here?
-console.log your final results
-After running the above tasks, console.log the index of "Fast and Furious" -We removed it 
-from the array, what value do we get when we look for the index of something that is not in the array?
-Thought question: that we declared the variable favMovieswith const, and yet, we were allowed
- to change the array. Weird? Should we have used let?
- */
-
-const favMovies = [
-  "Jaws",
-  "The Fellowship of the Ring",
-  "Howl's Moving Castle",
-  "Django Unchained",
-  "Cloud Atlas",
-  "The Usual Suspects",
-  "Toy Story",
-  "Conan the Barbarian",
-  "Titanic",
-  "Harry Potter",
-  "Fried Green Tomatoes",
-  "Volver",
-  "Oculus",
-  "Seven",
-  "Black Panther",
-  "Harry Potter",
-  "Imitation of Life",
-  "Snatch",
-  "Fast and Furious",
+const quotes = [
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
+  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi aut libero, ex dignissimos eius doloribus, rem amet possimus reiciendis ducimus dolores illo a debitis? Expedita autem assumenda ",
 ];
 
+// C. Accessing elements
+// Given the following array const randomThings = [1, 10, "Hello", true]
+const randomThings = [1, 10, "Hello", true];
+
+// How do you access the 1st element in the array?
+console.log(randomThings[0]);
+
+// Change the value of "Hello" to "World"
+randomThings[2] = "World";
+
+// Check the value of the array to make sure it updated the array. How? Why, yes! console.log();
+console.log(randomThings);
+
+// D. Change values
+// Given the following array const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"]
+const ourClass = ["Salty", "Zoom", "Sardine", "Slack", "Github"];
+
+// What would you write to access the 3rd element of the array?
+console.log("the 3rd element of the array", ourClass[3 - 1]);
+
+// Change the value of "Github" to "Octocat"
+ourClass[ourClass.length - 1] = "Octocat";
+console.log(ourClass);
+// Add a new element, "Cloud City" to the array
+
+// E. Mix It Up
+// Note: You don't really need .splice()for these. You could use it, but there are simpler array methods that are more appropriate.
+
+// Given the following array: const myArray = [5, 10, 500, 20]
+const myArray = [5, 10, 500, 20];
+
+// Add the string "Aegon"to the end of the array. Add another string of your choice to the end of the array.
+myArray.push("Aegon");
+console.log(myArray);
+
+// Remove the 5 from the beginning of the array.
+myArray.shift();
+console.log(myArray);
+
+// Add the string "Bob Marley" to the beginning of the array.
+myArray.unshift("Bob Marley");
+console.log(myArray);
+
+// Remove the string of your choice from the end of the array.
+myArray.pop();
+console.log(myArray);
+
+// Reverse this array using Array.prototype.reverse(). Did you mutate the array? What does mutate mean? Did the .reverse()method return anything?
+console.log("Did the .reverse()method return anything? ->", myArray.reverse());
+console.log(myArray);
+
+// F. Biggie Smalls
+// Create a variable that contains an integer.
+
+// Write an if ... elsestatement that:
+
+// console.log()s "little number" if the number is entered is less than 100
+// console.log()s big numberif the number is greater than or equal to 100.
+
+let integer = 10;
+console.log(integer < 100 ? "little number" : "big number");
+
+// G. Monkey in the Middle
+// Write an if ... else if ... elsestatement:
+
+// console.log()little number if the number entered is less than 5.
+// If the number entered is more than 10, log big number.
+// Otherwise, log "monkey".
+
+let monkey = 3;
 console.log(
-  favMovies.findIndex((element, index, array) => {
-    return element === "Titanic";
-  })
+  `monkey = ${monkey} - `,
+  monkey < 5 ? "little number" : monkey > 10 ? "big number" : "monkey"
 );
-
-// use the .sortme thod Thought question: what did this do to the array? Did it permanently alter it?
-console.log("before .sort()", favMovies);
-favMovies.sort();
-console.log("after .sort()", favMovies);
-
-// Use the method pop
-console.log("pop() element - ", favMovies.pop());
-console.log("after .pop() - ", favMovies);
-
-// push "Guardians of the Galaxy"
+monkey = 8;
 console.log(
-  "push Guardians of the Galaxy / method return element index - ",
-  favMovies.push('Guardians of the Galaxy"')
+  `monkey = ${monkey} - `,
+  monkey < 5 ? "little number" : monkey > 10 ? "big number" : "monkey"
 );
-console.log(favMovies);
-
-// Reverse the array
-console.log("from revers method - ", favMovies.reverse());
-console.log("after .reverse()", favMovies);
-
-// Use the shiftmethod
-console.log("shift method return - ", favMovies.shift());
-console.log("after .shift()", favMovies);
-
-// unshift- what does it return?
-console.log("unshift method return - ", favMovies.unshift("Red")); // elements quantity
-console.log("after .unshift()", favMovies);
-
-// splice "Django Unchained" and add "Avatar" (try finding the index of "Django Unchained",
-// instead of counting it yourself) Thought question: did this permanently alter our array?
-
-favMovies.splice(
-  favMovies.findIndex(
-    (element, index, array) => element === "Django Unchained"
-  ),
-  1,
-  "Avatar"
-);
-console.log("after .splice()", favMovies);
-
-// slice the last half of the array (challenge yourself and try to programatically ***
-// determine the middle of the array rather than counting it and hard coding it)
-// - Thought question: did this permanently alter our array?
-
-favMovies.splice(
-  Math.trunc(favMovies.length / 2),
-  Math.trunc(favMovies.length / 2) + 1
-);
-
-// console.log your final results
-console.log(favMovies);
-
-//After running the above tasks, console.log the index of "Fast and Furious"
-// -We removed it from the array, what value do we get when we look for the index of something that is not in the array?
-
+monkey = 111;
 console.log(
-  favMovies.findIndex((element, index, array) => element === "Fast and Furious")
+  `monkey = ${monkey} - `,
+  monkey < 5 ? "little number" : monkey > 10 ? "big number" : "monkey"
 );
 
-//Thought question: that we declared the variable favMovieswith const,
-// and yet, we were allowed to change the array. Weird? Should we have used let?
-
-// No, we good
-
-// ---------------  Where is Waldo --------------- //
-/*
-With the following multi-dimensional array
-const whereIsWaldo = [["Timmy", "Frank"], "Eggbert",
-                    ["Lucinda", "Jacc", "Neff", "Snoop"],
-                    ["Petunia", ["Baked Goods", "Waldo"]]];
-Remove Eggbert (hint look at the slice/splice method(s))
-Change "Neff" to "No One"
-Access and console.log "Waldo"
- */
-
-const whereIsWaldo = [
-  ["Timmy", "Frank"],
-  "Eggbert",
-  ["Lucinda", "Jacc", "Neff", "Snoop"],
-  ["Petunia", ["Baked Goods", "Waldo"]],
-];
-console.log(whereIsWaldo);
-whereIsWaldo.splice(1, 1);
-console.log(whereIsWaldo);
-whereIsWaldo[1].splice(2, 1);
-console.log(whereIsWaldo);
-console.log(whereIsWaldo[2][1][1]);
-
-// --------------- Excited Kitten ----------------//
-/* 
-Excited Kitten
-Write code that logs "Love me, pet me! HSSSSSS!" 20 times.
-For every even number in your loop,
- log "...human...why you taking pictures of me?...", "...the catnip made me do it...", or "...why does the red dot always get away..." at random.
-*/
-
-const talkingPoints = [
-  "...human...why you taking pictures of me?...",
-  "...the catnip made me do it...",
-  "...why does the red dot always get away...",
-];
-
-for (let i = 1; i <= 20; i += 1) {
-  console.log(talkingPoints[Math.floor(Math.random() * 3)]);
-}
-
-// ------------------ Find the Median ------------------ //
-/* 
-Find the median number in the following numsarray, then console.log that number.
-hint if you check the length of the array / 2, you might get not get a whole number. In which case, look into Math.floor( // something )
-const nums = [14,11,16,15,13,16,15,17,19,11,12,14,19,11,15,17,11,18,12,17,12,71,18,15,12];
-Expected output:
-=> 15
-*/
-
-const nums = [
-  14, 11, 16, 15, 13, 16, 15, 17, 19, 11, 12, 14, 19, 11, 15, 17, 11, 18, 12,
-  17, 12, 71, 18, 15, 12,
-];
-
-const medianNumber = (arr) => {
-  elementsSumm = 0;
-  arr.forEach((number) => {
-    elementsSumm += number;
-  });
-  return Math.floor(elementsSumm / 2);
-};
-
-console.log(medianNumber(nums));
-
-// --------------- Hungry for More? --------------- //
-/*
-Below, we've given you examples of Kristyn and Thom's closets modeled as data in JavaScript.
- Use this data to answer the following questions.
-*/
+// H. What's in Your Closet?
+// Below, we've given you examples of Kristyn and Thom's closets modeled as data in JavaScript.
 
 const kristynsCloset = [
   "left shoe",
@@ -327,40 +449,345 @@ const thomsCloset = [
     "raybans",
   ],
 ];
+console.log(kristynsCloset);
+// What's Kristyn wearing today? Using bracket notation to access items in kristynsCloset, log the sentence "Kristyn is rocking that " + the third item in Kristyn's closet + " today!" to the console.
+console.log(`Kristyn is rocking that ${kristynsCloset[2]} today!`);
 
-/*
-Alien Attire
-Kristyn's left shoe has traveled through time and space and turned up in Thom's accessories drawer! Remove Kristyn's shoe 
-from the array and save it to the variable kristynsShoe. Use that variable to add Kristyn's lost shoe to Thom's accessories array.
-*/
+// Kristyn just bought some sweet shades! Add "raybans" to her closet after "yellow knit hat".
+kristynsCloset.splice(6, 0, "raybans");
+console.log(kristynsCloset);
 
-let kristynsShoe = kristynsCloset[0];
-kristynsCloset.splice(0, 1);
-thomsCloset[2].push(kristynsShoe);
-thomsCloset[2].splice(1, 0, kristynsShoe);
+// Kristyn spilled coffee on her hat... modify this item to read "stained knit hat"instead of yellow.
+kristynsCloset.splice(5, 1, "stained knit hat");
+console.log(kristynsCloset);
 
+// Put together an outfit for Thom! Using bracket notation, access the first element in Thom's shirtsarray.
+console.log("homsCloset - ", thomsCloset);
+console.log("Thom's shirts array.", thomsCloset[0][0]);
+
+// In the same way, access one item from Thom's pants array.
+console.log("Thom's pants array.", thomsCloset[1][1]);
+
+// Access one item from Thom's accessories array.
+console.log("t Thom's accessories array.", thomsCloset[2][2]);
+
+// Log a sentence about what Thom's wearing. Example: "Thom is looking fierce in a grey button-up, jeans and wool scarf!"
 console.log(
-  `Kristyn's outfit: ${kristynsCloset[1]} ${kristynsCloset[3]} ${kristynsCloset[6]}`
+  `Thom is looking ${thomsCloset[0][0]}, ${thomsCloset[1][1]} and ${thomsCloset[2][2]}`
 );
 
-console.log(
-  `Thom's outfit: ${thomsCloset[0][1]} ${thomsCloset[1][2]} ${thomsCloset[2][1]}`
-);
+// Get more specific about what kind of PJs Thom's wearing this winter. Modify the name of his PJ pants to Footie Pajamas.
+thomsCloset[1][2] = " Footie Pajamas";
+console.log(thomsCloset);
 
-// Dirty Laundry
-// Continue looking at the closet arrays:
+//-----------------------IV. Functions
 
-// Time to do laundry - loop through Kristyn's closet and log the sentence "WHIRR: Now washing (item)" for each item in the array.
+// A. printGreeting
+// Do you think you could write a function called printGreetingwith a parameter namethat returns a greeting with the argument interpolated into the greeting?
+// Like so?
+// console.log(printGreeting("Slimer"));
+const printGreeting = (name) => `Hello there, ${name}!`;
+console.log(printGreeting("Igor"));
 
-kristynsCloset.forEach((item) => {
-  console.log(`WHIRR: Now washing ${item}`);
-});
+// => Hello there, Slimer!
 
-// Inventory
-// Thom wants to do inventory on his closet. Using bracket notation, log the arrays containing all of Thom's shirts, pants, and accessories.
+// You think you could? I think so too. Feel free to skip this problem, because you've already done it. If you've done the problem twice, read entire problems carefully before doing them from now on.
 
-thomsCloset.forEach((item) => {
-  item.forEach((element) => {
-    console.log(`thomsCloset ${element}`);
+// B. printCool
+// Write a function printCoolthat accepts one parameter, nameas an argument. The function should print the name and a message saying that that person is cool.
+
+// console.log(printCool("Captain Reynolds"));
+// => "Captain Reynolds is cool";
+
+const printCoolthat = (name) => `${name} is cool`;
+console.log(printCoolthat("Captain Reynolds"));
+
+// C. calculateCube
+// Write a function calculateCubethat takes a single number and prints the volume of a cube made from that number.
+
+// console.log(calculateCube(5));
+// => 125
+
+const calculateCube = (number) => number * number;
+console.log(calculateCube(33));
+
+// D. isVowel
+// Write a function isVowelthat takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise. The vowel could be upper or lower case. Test your function on every vowel and make sure it's working. In general, when you write functions, take a minute to test them with different values to make sure they behave the way you want.
+
+// console.log(isVowel("a"));
+// => true
+
+const isVowelthat = (character) => {
+  const vowelList = ["a", "e", "i", "o", "u"];
+  if (vowelList.includes(character.toLowerCase())) {
+    return true;
+  }
+  return false;
+};
+
+//'a', 'e', 'i', 'o' and 'u'
+console.log(isVowelthat("e"));
+console.log(isVowelthat("A"));
+console.log(isVowelthat("b"));
+
+// E. getTwoLengths
+// Write a function getTwoLengthsthat accepts two parameters (strings). The function should return an array of numbers where each number is the length of the corresponding string.
+
+// console.log(getTwoLengths("Hank", "Hippopopalous"));
+// => [4, 13]
+
+const getTwoLengths = (string1, string2) => [string1.length, string2.length];
+console.log(getTwoLengths("Igor", "Savin"));
+
+// G. maxOfThree
+// Define a function maxOfThreethat takes three numbers as arguments and returns the largest of them. If all numbers are the same, it doesn't matter which one is returned. If the two largest numbers are the same, one of them should be returned. Be sure to test it with larger values in each of the three locations.
+
+// console.log(maxOfThree(6, 9, 1));
+// => 9
+
+// Did you use Google and find Math.max()? If so, great job! Very resourceful—keep looking stuff up! However, for this particular question, we need you to submit a solution that does not use Math.max().
+
+// const maxOfThreethat = (arg1, arg2, arg3) => {
+//   if (arg1 > arg2 && arg1 > arg3) {
+//     return arg1;
+//   } else if (arg2 > arg1 && arg2 > arg3) {
+//     return arg2;
+//   } else {
+//     return arg3;
+//   }
+// };
+// console.log(maxOfThreethat(3, 44, 444));
+// console.log(maxOfThreethat(2, 34, 12));
+// console.log(maxOfThreethat(122, 22, 1));
+
+const maxOfThreethat = (arg1, arg2, arg3) =>
+  arg1 > arg2 && arg1 > arg3 ? arg1 : arg2 > arg1 && arg2 > arg3 ? arg2 : arg3;
+
+console.log(maxOfThreethat(3, 44, 444));
+console.log(maxOfThreethat(2, 34, 12));
+console.log(maxOfThreethat(122, 22, 1));
+
+// H. printLongestWord
+// Write a function printLongestWordthat accepts a single argument, an array of strings. The method should return the longest word in the array. In case of a tie, the method should return the word that appears first in the array.
+
+// console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
+// => "Peanutbutter"
+
+const printLongestWord = (strings) => {
+  let result = "";
+  strings.forEach((element) => {
+    if (element.length > result.length) result = element;
   });
-});
+  return result;
+};
+
+console.log(
+  printLongestWord([
+    "BoJack",
+    "Princess",
+    "Diane",
+    "a",
+    "Max",
+    "Peanutbutter",
+    "big",
+    "Todd",
+  ])
+);
+
+//-----------------------------Objects simple students should just follow instructions here.
+
+// Let's set up an object data structure. Let's say we have a website that sells products, and we have a user of our website, and we want to store that user's data. The object data structure is a good way to organize the data from our user.
+
+// A. Make a user object
+// Create an object called user.
+// Write in to the object the key-value pairs for name, email, age, and purchased. Set the value of purchasedto an empty array []. Set the other values to whatever you would like.
+const user = { name: "igor", email: "rerer@gmail.com", age: 33, purchased: [] };
+console.log(user);
+
+// B. Update the user
+// Our user has changed his or her email address. Without changing the original userobject, update the emailvalue to a new email address.
+user.email = "sdfsdgg@mail.ru";
+console.log(user);
+
+// Our user has had a birthday! Without changing the original userobject, increment the agevalue using the postfix operator. Hint: age++
+user.age++;
+console.log(user);
+
+// C. Adding keys and values
+// You have decided to add your user's location to the data that you want to collect.
+
+// Without changing the original userobject, add a new key locationto the object, and give it a value or some-or-other location (a string).
+user.location = "NYC";
+console.log(user);
+
+// D. Shopaholic!
+// Our user has purchased an item! They have purchased some "carbohydrates". Using .push(), add the string "carbohydrates" to the purchasedarray.
+// Our user has purchased an item! They have purchased some "peace of mind". Using .push(), add the string "peace of mind" to the purchasedarray.
+// Our user has purchased an item! They have purchased some "Merino jodhpurs". Using .push(), add the string "Merino jodhpurs" to the purchasedarray.
+// Console.log just the "Merino jodhpurs" from the purchasedarray.
+
+user.purchased.push("carbohydrates");
+user.purchased.push("peace of mind");
+user.purchased.push("Merino jodhpurs");
+console.log(...user.purchased);
+
+// E. Object-within-object
+// Remember that you can add an object to an existing object in the same way that you can add any new property/value pair.
+
+// If we want to give our user a friend with a name and age, we could write:
+
+// user.friend = {
+//   name: "Grace Hopper",
+//   age: 85,
+// };
+
+// When we console.log user, we would see the friend object added to our user object.
+
+// Write a friend object into your userobject and give the friend a name, age, location, and purchased array (empty for now)
+user.friend = {
+  name: "Grace Hopper",
+  age: 85,
+  location: "LA",
+  purchased: [],
+};
+
+// Console.log just the friend's name
+console.log(user.friend.name);
+
+// Console.log just the friend's location
+console.log(user.friend.location);
+
+// CHANGE the friend's age to 55
+console.log((user.friend.age = 55));
+console.log(user.friend.age);
+
+// The friendhas purchased "The One Ring". Use .push()to add "The One Ring" to the friend's purchasedarray.
+user.friend.purchased.push("The One Ring");
+
+// The friendhas purchased "A latte". Use .push()to add "A latte" to the friend's purchasedarray.
+user.friend.purchased.push("A latte");
+
+// Console.log just "A latte" from the friend's purchasedarray.
+console.log(user.friend.purchased[user.friend.purchased.length - 1]);
+
+//--------------------------- F. Loops
+
+// Write a for loop that iterates over the User's purchasedarray (NOT the friend's purchased array), and prints each element to the console.
+console.log(...user.purchased);
+
+//or
+
+for (let i = 0; i < user.purchased.length; i += 1) {
+  console.log(user.purchased[i]);
+}
+
+// Write a for loop that iterates over the Friend's purchasedarray, and prints each element to the console.
+console.log(...user.friend.purchased);
+
+//or
+
+for (let i = 0; i < user.friend.purchased.length; i += 1) {
+  console.log(user.friend.purchased[i]);
+}
+
+// G. Functions can operate on objects
+// Write a single function updateUserthat takes no parameters. When the function is run, it should:
+// it should increment the user's age by 1
+// make the user's name uppercase
+// The function does not need a return statement, it will merely modify the user object.
+const updateUser = () => {
+  user.age += 1;
+  user.name = user.name.toUpperCase();
+};
+// console.log(user);
+// updateUser();
+// console.log(user);
+
+// Write a function oldAndLoud that performs the exact same tasks as updateUser, but instead of hard-coding it to only work on our userobject, make it take a parameter person, and have it modify the object that is passed in as an argument when the function is called. Call your oldAndLoudfunction with useras the argument.
+
+const oldAndLoud = (person) => {
+  person.age += 1;
+  person.name = user.name.toUpperCase();
+};
+
+console.log(user);
+updateUser(user);
+console.log(user);
+
+// Requirements Complete! Hungry for More?
+
+// Cat Combinator
+
+// 1. Mama cat
+// Define an object called cat1 that contains the following properties:
+
+// name
+// breed
+// age (a number)
+// console.log the cat's age
+// console.log the cat's breed
+
+const cat1 = {
+  name: "Pet",
+  breed: "siam",
+  age: 4,
+};
+console.log(cat1.age, cat1.breed);
+
+// 2. Papa cat
+// Define an object called cat2 that also contains the properties:
+
+// name
+// breed
+// age (a number)
+const cat2 = {
+  name: "Natan",
+  breed: "Pers",
+  age: 6,
+};
+
+//   3. Combine Cats!
+// The cats are multiplying!
+
+// Write a function combineCatsthat has two parameters mama, and papa. The function will take two arguments -- each a cat object.
+// Make it so the combine Catsfunction will return a combination of the two incoming cats
+// The result should be an object wherein the
+
+// name is a concatenation of the parents' names
+// the age is 1
+// the breed is each of the parents' breeds with a hyphen in betwee
+const combineCats = (mama, papa) => {
+  return {
+    name: `${mama.name}${papa.name}`,
+    breed: `${mama.breed}-${papa.breed}`,
+    age: 1,
+  };
+};
+
+// Pass cat1and cat2as arguments to the combineCatsfunction. The function should console.log them.
+console.log(combineCats(cat1, cat2));
+
+// 4. Cat brain bender
+// If combineCatsreturns an object, and if combineCatstakes objects as arguments, then it stands to reason that:
+
+// catCombinatorcan use itself as its own argument.
+
+// Take a second to stew on that . . .
+
+// What is the result of:
+
+// console.log(combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2)));
+// Whoa . . .
+console.log(combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2)));
+
+// The above console.log is two levels deep of combineCats.
+
+// Write a console.log that is three levels deep of combineCats. combineCats should have two arguments, each which are combineCats, each which have two arguments, each which are combineCats.
+// Your output should look something like:
+
+console.log(
+  combineCats(
+    combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2)),
+    combineCats(combineCats(cat1, cat2), combineCats(cat1, cat2))
+  )
+);
