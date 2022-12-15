@@ -272,8 +272,8 @@ Print out the numbers that are within the range of 1 - 100
 Adjust your code to add a message next to even numbers only that says: "<-- is an even number"
 */
 //????????????????????????????????????????????
-// import { printOutNums } from "./script.js";
-// printOutNums();
+import { printOutNums } from "./script.js";
+printOutNums();
 
 // C. Give me Five students should use modulus
 // For the numbers 0 - 100, print out "I found a number. High five!" if the number is a multiple of five
