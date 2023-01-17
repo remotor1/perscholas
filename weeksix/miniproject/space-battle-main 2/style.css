@@ -1,0 +1,10 @@
+body {
+    background-color: aqua;
+    color: blue;
+}
+
+.alian {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
