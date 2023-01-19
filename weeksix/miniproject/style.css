@@ -1,0 +1,164 @@
+@keyframes float {
+  30% {
+    transform: translateY(-5px);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  70% {
+    transform: translateX(10px);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+* {
+  /* outline: 1px dotted pink; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.game-board {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: rgb(28, 59, 59);
+
+  background-image: url("./images/solar-system.svg"), linear-gradient(rgb(12, 9, 49), rgb(23, 23, 17));
+  ;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  color: white;
+  font-family: Helvetica;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 150px 250px 100px 350px;
+  grid-template-areas:
+    "enemies enemies enemies"
+    "text text text"
+    "buttons buttons buttons"
+    "player player player"
+}
+
+.enemies {
+  grid-area: enemies;
+}
+
+.text {
+  margin-top: 20px;
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  z-index: 1;
+  padding: 30px;
+  transition: transform 0.5s;
+}
+
+.buttons {
+  grid-area: buttons;
+}
+
+.player {
+  grid-area: player;
+}
+
+.lines {
+  margin-top: 10px;
+}
+
+.child {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font-size: 22px;
+  color: white;
+  background-color: black;
+  border: solid white;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-style:hover {
+  transform: scale(1.1);
+  transition: background-color 3s, transform 2.5s;
+}
+
+
+.images {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  height: 150px;
+  width: auto;
+  animation-name: float;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.player-image {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(20deg) brightness(118%) contrast(119%);
+}
+
+#ship-number-input {
+  font-size: 20px;
+}
+
+
+.ship1 {
+  filter: invert(68%) sepia(64%) saturate(6298%) hue-rotate(162deg) brightness(95%) contrast(102%);
+  animation-duration: 8s;
+}
+
+.ship2 {
+  filter: invert(18%) sepia(93%) saturate(7476%) hue-rotate(311deg) brightness(108%) contrast(102%);
+  animation-duration: 5s;
+}
+
+.ship3 {
+  filter: invert(10%) sepia(98%) saturate(6922%) hue-rotate(256deg) brightness(88%) contrast(133%);
+  animation-duration: 7s;
+}
+
+.ship4 {
+  filter: invert(79%) sepia(91%) saturate(750%) hue-rotate(105deg) brightness(106%) contrast(99%);
+  animation-duration: 8s;
+}
+
+.ship5 {
+  filter: invert(76%) sepia(85%) saturate(4147%) hue-rotate(88deg) brightness(114%) contrast(113%);
+  animation-duration: 9s;
+}
+
+.ship6 {
+  filter: invert(59%) sepia(46%) saturate(5122%) hue-rotate(359deg) brightness(101%) contrast(107%);
+  animation-duration: 5s;
+}
+
+
+/* #text-line-1 {}
+
+#text-line-2 {}
+
+#text-line-3 {} */
