@@ -1,0 +1,15 @@
+/* SearchBar */
+.searchbar {
+    width: 100%;
+    outline: 2px solid green;
+    padding: 2px 4px;
+
+
+}
+
+.searchbar__input {
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    line-height: 26px;
+}

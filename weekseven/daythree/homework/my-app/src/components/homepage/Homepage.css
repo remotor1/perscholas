@@ -1,0 +1,9 @@
+/* Homepage css */
+.homepage {
+    outline: 2px solid orange;
+    width: 400px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

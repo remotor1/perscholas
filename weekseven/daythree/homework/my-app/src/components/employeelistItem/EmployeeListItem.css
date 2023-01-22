@@ -1,0 +1,39 @@
+/* EmployeeListItem */
+.employeeListItem {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.employeeListItem__element {
+    outline: 3px solid purple;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.employeeListItem__photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.employeeListItem__name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.employeeListItem__position {
+    font-size: 14px;
+}
+
+.employeeListItem__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
