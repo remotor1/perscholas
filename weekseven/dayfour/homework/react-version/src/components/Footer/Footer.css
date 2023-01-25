@@ -1,0 +1,22 @@
+.footer {
+    padding: 2rem 0 0;
+}
+
+.footer__menu {
+    padding: 1rem 0;
+}
+
+.footer__menu-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__menu-link {
+    color: var(--focus-color);
+    text-decoration: none;
+}
+
+.footer__copyrigth {
+    color: var(--text-color)
+}

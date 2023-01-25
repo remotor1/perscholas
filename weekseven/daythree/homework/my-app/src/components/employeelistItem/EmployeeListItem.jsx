@@ -1,7 +1,7 @@
 //EmployeeListItem
 import React from 'react';
 import './EmployeeListItem.css';
-import photo from '../employeelist/imgs/photo.jpg'; // Путь к изображению внутри сборки
+//import photo from '../employeelist/imgs/photo.jpg'; // Путь к изображению внутри сборки
 
 export default class EmployeeListItem extends React.Component {
   render() {

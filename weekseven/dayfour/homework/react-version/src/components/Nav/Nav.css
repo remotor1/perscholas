@@ -1,0 +1,17 @@
+.menu {
+    padding: 1rem 0 0;
+}
+
+.menu__links {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__link {
+    color: lightgray;
+}
+
+.main {
+    padding: 1rem 0;
+}

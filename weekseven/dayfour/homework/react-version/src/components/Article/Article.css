@@ -1,0 +1,41 @@
+.post {
+    padding: 3rem 0 1rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.post__time {
+    padding: 1rem 0;
+    color: var(--text-color);
+}
+
+.post__title {
+    padding: 1rem 0;
+    color: var(--text-color)
+}
+
+.post__text {
+    padding: 1rem 0;
+}
+
+.post__text::first-letter {
+    font-size: 6rem;
+    float: left;
+    padding: 0;
+    margin: 0;
+    line-height: 85%;
+    padding: 0 10px 0;
+}
+
+
+.post__image {
+    min-width: 100%;
+}
+
+.post__link {
+    padding: 1rem 0;
+    display: block;
+    text-align: right;
+    color: var(--focus-color);
+    font-weight: bold;
+    font-size: 1rem;
+}
