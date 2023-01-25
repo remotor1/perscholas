@@ -1,4 +1,4 @@
-Open website --> [HERE](https://glistening-malabi-17c941.netlify.app/).
+Open website on netlify!!! --> [HERE](https://glistening-malabi-17c941.netlify.app/).
 
 # Getting Started with Create React App
 
