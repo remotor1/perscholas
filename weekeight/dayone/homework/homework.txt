@@ -1,0 +1,102 @@
+1) How do you make a Circle in CSS?
+
+div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* makes the element a circle */
+}
+
+2) What is Z-index?
+
+The CSS z-index property specifies the stack order of an element. An element with a higher z-index value will be positioned in front of an element with a lower z-index value.
+
+The default z-index value for an element is 0, and elements with a positive z-index value will be positioned in front of elements with a negative z-index value.
+
+The z-index property can be used in conjunction with the position property to control the stacking order of elements that are positioned relative to one another. For example, if you have two elements, one with position: absolute and z-index: 1, and the other with position: relative and z-index: 2, the element with position: absolute and z-index: 1 will be positioned behind the element with position: relative and z-index: 2.
+
+It's important to note that the z-index property only works on elements that have a position value other than static (the default value).
+
+
+3) What is a Vendor Prefix and What is it's Purpose?
+
+A vendor prefix is a code that is added to the beginning of a CSS property or value to ensure that the property or value is recognized and supported by a specific browser or set of browsers. Vendor prefixes are typically used for CSS properties and values that are not yet part of the official CSS specification, or for properties and values that have been implemented differently by different browsers.
+
+The purpose of vendor prefixes is to provide a way for developers to use new or experimental CSS properties and values in their web pages, while ensuring that the pages will still work correctly in older or less-compliant browsers. By adding vendor prefixes to the properties and values, developers can ensure that the properties and values will be recognized and used by the specific browsers that they are targeting, while also providing a fallback for other browsers that may not support the properties and values.
+
+4) What is the difference between CSS Grid and Flexbox?
+
+CSS Grid and Flexbox are both layout systems in CSS that allow you to create complex, responsive designs with minimal code. However, they are designed for different types of layout and have some key differences:
+
+Grid is best suited for creating two-dimensional layouts, such as grids and tables. It allows you to create rows and columns, and to place elements within those rows and columns. Grid also allows you to control the size of the rows and columns and the gaps between them, which makes it easy to create precise, responsive designs.
+
+Flexbox is best suited for creating one-dimensional layouts, such as navigation bars and lists. It allows you to align elements horizontally or vertically, and to control the distribution of space between elements. Flexbox also allows you to control the size of elements based on the size of their container, which makes it easy to create flexible, responsive designs.
+
+In summary, Grid is best for creating grid-based layouts, Flexbox is best for creating one-dimensional layouts.
+
+Here's an example of how you might use each layout system:
+
+Grid: You are creating a photo gallery and you want to display the photos in a grid of rows and columns that can adjust to the size of the screen.
+Flexbox: You are creating a navigation bar and you want the links to be aligned horizontally, fill the available space and be able to wrap to the next line if the screen is too small.
+Each layout system has its own strengths and weaknesses, and choosing between them often depends on the specific layout needs of your project.
+
+5) How might you Speed Up a Slow App? hint Google Lighthouse in Chrome Developer Tools....
+
+
+
+
+There are many ways to speed up a slow app, and one of the best tools for identifying performance issues and optimization opportunities is Google Lighthouse. Lighthouse is an open-source tool that is built into the Chrome Developer Tools, and it can help you identify issues related to performance, accessibility, best practices, and more.
+
+Here are a few ways you might use Lighthouse to speed up a slow app:
+
+Measure performance: Lighthouse can measure the performance of your app by simulating a user interacting with it, and it will provide a score for several performance metrics such as first contentful paint, time to interactive, and speed index. Based on this score, you can identify areas that need improvement and optimize them.
+
+Identify potential bottlenecks: Lighthouse can provide a detailed breakdown of where time is being spent during the loading of your app, such as on network requests, JavaScript execution, and layout. By identifying potential bottlenecks, you can then focus on addressing them in order to improve the performance of your app.
+
+Optimize images: Lighthouse can also report on the size and compression of images in your app, and it can recommend ways to optimize them. By compressing images and reducing their size, you can speed up the loading time of your app and reduce the amount of data that needs to be downloaded.
+
+Measure the impact of code changes: Lighthouse allows you to run the audit multiple times, this way you can measure the impact of your code changes on the app performance and see how much of an improvement you've made.
+
+Other best practices: Lighthouse can also report on other best practices and areas for improvement such as accessibility, SEO, and Progressive Web App (PWA) best practices.
+
+It's worth noting that Lighthouse is a tool that can help you identify potential issues, it's not a magic bullet that will solve all the performance issues on your app, however it's a great starting point to understand your app performance and where to focus your efforts.
+
+6) What is CRUD?
+
+CRUD stands for Create, Read, Update, and Delete. It is a set of basic operations that are performed on data in a database or other storage system.
+
+Create: The ability to create new records or data in the database.
+
+Read: The ability to retrieve and view existing records or data from the database.
+
+Update: The ability to modify or change existing records or data in the database.
+
+Delete: The ability to remove existing records or data from the database.
+
+These four operations form the basis of most database-driven applications and are used to manage and manipulate data in a consistent, efficient manner. CRUD is typically implemented through an application programming interface (API) or a web interface, and can be used to create, read, update, and delete data in a variety of formats, including text, numbers, images, and more.
+
+CRUD operations are usually implemented in the back-end of an application and expose an API that can be consumed by the front-end. This way, the front-end can interact with the database without having to know the specific implementation details of the database.
+
+Additionally, CRUD operations are also commonly found in web development with frameworks such as Ruby on Rails and Laravel, that have built-in conventions and methods to quickly create CRUD functionality for certain models.
+
+7) What is OOP?
+
+OOP stands for Object-Oriented Programming. It is a programming paradigm that is based on the concept of "objects", which can be thought of as a container for data (attributes or properties) and behavior (methods or functions).
+
+Object-oriented programming languages have a few key characteristics:
+
+Encapsulation: The ability to hide the internal details of an object, and expose only the necessary information to other parts of the program. This helps to protect the data and behavior of an object from unintended access or modification.
+
+Inheritance: The ability for one class or object to inherit the properties and methods of another class or object. This allows for code reusability and the creation of a class hierarchy.
+
+Polymorphism: The ability for objects of different classes to be used interchangeably, even though they may have different internal implementations. This allows for a more flexible and extensible codebase.
+
+Abstraction: The ability to represent the essential features of an object without including implementation details. This allows for a higher level of code organization, and makes it easier to understand and maintain complex systems.
+
+In OOP, the program is organized around objects rather than actions, and data rather than logic. This way, objects can interact with each other and the program is built around these interactions, providing a more modular and maintainable codebase.
+
+Additionally, OOP principles have been used as the foundation of many popular frameworks and libraries, such as React, Angular and Vue.js, which provide a way to build complex user interfaces in a modular and maintainable way.
+
+
+
+
+

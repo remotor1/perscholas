@@ -9,21 +9,23 @@ export default class EmployeeListItem extends React.Component {
     console.log('data ---- ', data);
     return (
       <ul className='employeeListItem'>
-        {data.map((item, index) => (
-          <li key={index} className='employeeListItem__element'>
-            <img
-              src={item.pics}
-              alt={item.name}
-              className='employeeListItem__photo'
-            />
+        {data.map((item, index) => {
+          return (
+            <li key={index} className='employeeListItem__element'>
+              <img
+                src={item.pics}
+                alt={item.name}
+                className='employeeListItem__photo'
+              />
 
-            <div className='employeeListItem__info'>
-              <p className='employeeListItem__name'>{`${item.firstname} ${item.lastname}`}</p>
+              <div className='employeeListItem__info'>
+                <p className='employeeListItem__name'>{`${item.firstname} ${item.lastname}`}</p>
 
-              <p className='employeeListItem__position'>{item.position}</p>
-            </div>
-          </li>
-        ))}
+                <p className='employeeListItem__position'>{item.position}</p>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     );
   }

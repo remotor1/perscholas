@@ -43,6 +43,44 @@ const items = [
   },
 ];
 
+const items2 = [
+  {
+    firstname: 'James',
+    lastname: 'King',
+    position: 'President and CEO',
+    pics: './imgs/photo.jpg',
+  },
+  {
+    firstname: 'Julie',
+    lastname: 'Taylor',
+    position: 'VP of Marketing',
+    pics: './imgs/photo.jpg',
+  },
+  {
+    firstname: 'Eugene',
+    lastname: 'Lee',
+    position: 'CFO',
+    pics: './imgs/photo.jpg',
+  },
+  {
+    firstname: 'John',
+    lastname: 'Williams',
+    position: 'VP of Engineering',
+    pics: './imgs/photo.jpg',
+  },
+  {
+    firstname: 'Ray',
+    lastname: 'Moore',
+    position: 'VP of Sales',
+    pics: './imgs/photo.jpg',
+  },
+  {
+    firstname: 'Paul',
+    lastname: 'Jones',
+    position: 'QA Manager',
+    pics: './imgs/photo.jpg',
+  },
+];
 export default class EmployeeList extends React.Component {
   render() {
     return (
