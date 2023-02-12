@@ -1,3 +1,24 @@
+# Project: Your React Web Application
+
+Your application must meet these requirements:
+Built with HTML, CSS, JavaScript and REACT
+Hosted on heroku or netlify
+Frequent Commits to github
+A README.mdfile with explanations of the technologies used, the approach taken, a link to your live site, installation instructions, unsolved problems, etc.
+Use AJAX to make a request to an external data source like OMDBapi and insert some of the data retrieved into the DOM
+
+## Authors
+
+- [Igor Savin](https://github.com/remotor1)
+
+## Demo
+
+https://admirable-cascaron-d384d0.netlify.app/
+
+## Tech Stack
+
+React, HTML, CSS, JS
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

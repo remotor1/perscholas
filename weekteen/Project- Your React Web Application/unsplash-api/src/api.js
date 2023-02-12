@@ -19,8 +19,6 @@ const api = new Api({
     apiKey: 'qy7kg1tkgsJkzmXelJ1943iRz9rYzGKJgGINT-OEFJQ'
 });
 
-// /search/photos?query=${query}
-
 export default api;
 
 // qy7kg1tkgsJkzmXelJ1943iRz9rYzGKJgGINT-OEFJQ

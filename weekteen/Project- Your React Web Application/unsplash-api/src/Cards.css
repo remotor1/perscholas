@@ -1,0 +1,8 @@
+.Cards {
+    display: flex;
+    outline: 1px solid rgba(128, 128, 128, 0.505);
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+}

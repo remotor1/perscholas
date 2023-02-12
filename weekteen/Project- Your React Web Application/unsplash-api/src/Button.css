@@ -6,8 +6,9 @@
   height: 54px;
   font-size: 14px;
   border: 0;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 .Button:hover {
