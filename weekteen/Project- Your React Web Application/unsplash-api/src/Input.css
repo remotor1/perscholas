@@ -1,4 +1,4 @@
-.Input {
+/* .Input {
   box-sizing: border-box;
   padding-left: 10px;
   color: #000;
@@ -9,7 +9,7 @@
   border: 1px solid #c4c4c4;
   border-radius: 5px;
   margin: 10px 0;
-}
+} */
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
