@@ -10,7 +10,7 @@ import './Card.css'
 let Input = {
   boxSizing: 'border-box',
   paddingLeft: '10px',
-  color: '#000',
+  color: '#b6b6b6',
   width: '100%',
   maxWidth: '684px',
   height: '54px',
@@ -31,7 +31,6 @@ function App() {
       boxShadow: `0 0 ${inputValue.length}px ${inputValue.length}px	rgba(82, 153, 224, 0.5)`,
       boxSizing: 'border-box',
       paddingLeft: '10px',
-      color: '#000',
       width: '100%',
       maxWidth: '684px',
       height: '54px',

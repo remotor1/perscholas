@@ -17,4 +17,6 @@ code {
 * {
   /* outline: 1px dotted pink; */
   box-sizing: border-box;
+  background-color: rgb(17, 17, 17);
+  color: aliceblue;
 }
