@@ -26,7 +26,7 @@ function App() {
   const inputRef = useRef(false);
 
   useEffect(() => {
-    console.log('chenched', inputValue, inputValue.length);
+    // console.log('chenched', inputValue, inputValue.length);
     Input = {
       boxShadow: `0 0 ${inputValue.length}px ${inputValue.length}px	rgba(82, 153, 224, 0.5)`,
       boxSizing: 'border-box',
@@ -53,7 +53,7 @@ function App() {
             subtitle: cardData.user.first_name
           }
         })
-        console.log('formattedData', formattedData);
+        // console.log('formattedData', formattedData);
         setcardsData(formattedData);
       }).catch(() => { })
   }
