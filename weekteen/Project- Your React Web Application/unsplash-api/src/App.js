@@ -55,7 +55,7 @@ function App() {
         })
         console.log('formattedData', formattedData);
         setcardsData(formattedData);
-      })
+      }).catch(() => { })
   }
 
   const handleInput = (e) => {
